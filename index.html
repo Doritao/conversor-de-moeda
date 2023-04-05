@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <header class="cabecalho">
+            <p>CodeClub Convert Money</p>
+        </header>
+        <div class="container">
+            <section class="caixa-principal">
+                <form>
+                    <div class="form-item">
+                        <p>Converter <b>de</b></p>
+                        <select id="converter-de">
+                            <option>R$ <b>Real Brasileiro</b></option>
+                            <option>US$ <b>Dólar americano</b></option>
+                            <option>€ <b>Euro</b></option>
+                        </select>
+                        
+                    </div>
+                    <div class="form-item">
+                        <p>Converter <b>para</b></p>
+                        <select id="converter-para">
+                            <option>US$ <b>Dólar americano</b></option>
+                            <option>R$ <b>Real Brasileiro</b></option>
+                            <option>€ <b>Euro</b></option>
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <p><b>Valor</b></p>
+                        <input placeholder="R$ 0,00" id="input">
+                    </div>
+                    <button>Converter</button>
+                </form>
+            </section>
+            <section class="section-result">
+                <div class="currency-container">
+                    <img src="./assets/br-flag.svg" id="DinheiroFlagFisrtInput">
+                    <p id="DinheiroPalavraFirstInput">Real</p>
+                    <p id="DinheiroFirstInput"><b><span id="UnidadeMonetaria1">R$</span> 0,00</b></p>
+                </div>
+                <img src="./assets/Vector.png">
+                <div class="currency-container">
+                    <img src="./assets/usa-flag.svg" id="DinheiroFlagSecondInput">
+                    <p id="DinheiroPalavraSecondInput">Dólar Americano</p>
+                    <p id="DinheiroSecondInput"><b><span id="UnidadeMonetaria2">US$</span> 0,00</b></p>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+<script src="./index.js"></script>
+</html>
