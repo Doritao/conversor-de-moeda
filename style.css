@@ -38,20 +38,20 @@ main {
     padding: 0 2rem;
 }
 
-.caixa-principal form {
+.caixa-principal .form-td {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.caixa-principal form .form-item p{
+.caixa-principal .form-td .form-item p{
     margin-bottom: 7px;
     color: #777777;
     
 }
 
-.caixa-principal form select, input{
+.caixa-principal .form-td select, input{
     border: 1px solid #BBBBBB;
     border-radius: 4px;
     height: 3rem;
@@ -67,7 +67,7 @@ main {
 }
 
 
-.caixa-principal form button {
+.caixa-principal .form-td button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,11 +83,11 @@ main {
     font-size: 1rem;   
 }
 
-.caixa-principal form button:hover {
+.caixa-principal .form-td button:hover {
     opacity: 0.9;
 }
 
-.caixa-principal form button:active {
+.caixa-principal .form-td button:active {
     opacity: 0.6;
 }
 
