@@ -1,133 +1,129 @@
-// let FirstInput = document.getElementById('converter-de')
-// let SecondInput = document.getElementById('converter-para')
-// let select = document.querySelectorAll('select')
-// let DinheiroFlagFisrtInput = document.getElementById('DinheiroFlagFisrtInput')
-// let DinheiroFlagSecondInput = document.getElementById('DinheiroFlagSecondInput')
-// let DinheiroPalavraFirstInput = document.getElementById('DinheiroPalavraFirstInput')
-// let DinheiroPalavraSecondInput = document.getElementById('DinheiroPalavraSecondInput')
-// let DinheiroFirstInput = document.getElementById('DinheiroFirstInput')
-// let DinheiroSecondInput = document.getElementById('DinheiroSecondInput')
-// let input = document.getElementById('input')
-// let UnidadeMonetaria1 = document.getElementById('UnidadeMonetaria1')
-// let UnidadeMonetaria2 = document.getElementById('UnidadeMonetaria2')
-// let button = document.querySelector('button')
+ let FirstInput = document.getElementById('converter-de')
+ let SecondInput = document.getElementById('converter-para')
+ let select = document.querySelectorAll('select')
+ let DinheiroFlagFisrtInput = document.getElementById('DinheiroFlagFisrtInput')
+ let DinheiroFlagSecondInput = document.getElementById('DinheiroFlagSecondInput')
+ let DinheiroPalavraFirstInput = document.getElementById('DinheiroPalavraFirstInput')
+ let DinheiroPalavraSecondInput = document.getElementById('DinheiroPalavraSecondInput')
+ let DinheiroFirstInput = document.getElementById('DinheiroFirstInput')
+ let DinheiroSecondInput = document.getElementById('DinheiroSecondInput')
+ let input = document.getElementById('input')
+ let UnidadeMonetaria1 = document.getElementById('UnidadeMonetaria1')
+ let UnidadeMonetaria2 = document.getElementById('UnidadeMonetaria2')
+ let button = document.querySelector('button')
+ let DolarToReal = 5.07
+ let DolarToEur = 0.91
+ let RealToDolar = 0.20
+ let RealToEuro = 0.18
+ let EuroToDolar = 1.10
+ let EuroToReal = 5.56
+ FirstInput.addEventListener('change', () => {
+     if(FirstInput.value == 'R$ Real Brasileiro') {
+         console.log(`f input real`)
+         DinheiroFlagFisrtInput.src = './assets/br-flag.svg'
+         DinheiroPalavraFirstInput.innerText = 'Real'
+         input.placeholder = 'R$ 0,00'
+         UnidadeMonetaria1.innerText = 'R$'
+         }
+     if(FirstInput.value == 'US$ Dólar americano') {
+         console.log(`f input dolar`)
+         DinheiroFlagFisrtInput.src = './assets/usa-flag.svg'
+         DinheiroPalavraFirstInput.innerText = 'Dólar Americano'
+         input.placeholder = '$ 0,00'
+         UnidadeMonetaria1.innerText = '$'
+     }
+     if(FirstInput.value == '€ Euro') {
+         console.log(`f input euro`)
+         DinheiroFlagFisrtInput.src = './assets/eur.svg'
+         DinheiroPalavraFirstInput.innerText = 'Euro'
+         input.placeholder = '€ 0,00'
+         UnidadeMonetaria1.innerText = '€'
+     }
+ })
+ SecondInput.addEventListener('change', () => {
+     if(SecondInput.value == 'R$ Real Brasileiro') {
+         console.log(`s input real`)
+         DinheiroFlagSecondInput.src = './assets/br-flag.svg'
+         DinheiroPalavraSecondInput.innerText = 'Real'
+         input.placeholder = 'R$ 0,00'
+         UnidadeMonetaria2.innerText = 'R$'
+         }
+     if(SecondInput.value == 'US$ Dólar americano') {
+         console.log(`s input dolar`)
+         DinheiroFlagSecondInput.src = './assets/usa-flag.svg'
+         DinheiroPalavraSecondInput.innerText = 'Dólar Americano'
+         input.placeholder = '$ 0,00'
+         UnidadeMonetaria2.innerText = '$'
+     }
+     if(SecondInput.value == '€ Euro') {
+         console.log(`s input euro`)
+         DinheiroFlagSecondInput.src = './assets/eur.svg'
+         DinheiroPalavraSecondInput.innerText = 'Euro'
+         input.placeholder = '€ 0,00'
+         UnidadeMonetaria2.innerText = '€'
+     }
+ })
+ button.addEventListener('click', () => {
+     if(FirstInput.value == 'R$ Real Brasileiro') {
+         if(SecondInput.value == 'US$ Dólar americano') {
+             var valorConvertido = (Number(input.value)*RealToDolar).toFixed(2)
+      
+             DinheiroFirstInput.innerHTML = `<b>R$<b> ${Number(input.value)}</b`
+             DinheiroSecondInput.innerHTML = `<b>US$<b> ${valorConvertido}`
+         }
+         if(SecondInput.value == '€ Euro') {
+             var valorConvertido = (Number(input.value)*RealToEuro).toFixed(2)
+      
+             DinheiroFirstInput.innerHTML = `<b>R$<b> ${Number(input.value)}</b`
+             DinheiroSecondInput.innerHTML = `<b>€ <b> ${valorConvertido}`
+      
+         }
+         if(SecondInput.value == 'R$ Real Brasileiro') {
+             alert('Você não pode converter para a mesma moeda')
+         }
+     }
+     if(FirstInput.value == 'US$ Dólar americano') {
+         if(SecondInput.value == 'R$ Real Brasileiro') {
+             var valorConvertido = (Number(input.value)*DolarToReal).toFixed(2)
+      
+             DinheiroFirstInput.innerHTML = `<b>US$<b> ${Number(input.value)}</b`
+             DinheiroSecondInput.innerHTML = `<b>R$<b> ${valorConvertido}`
+      
+         }
+         if(SecondInput.value == '€ Euro') {
+             var valorConvertido = (Number(input.value)*DolarToEur).toFixed(2)
+      
+             DinheiroFirstInput.innerHTML = `<b>US$<b> ${Number(input.value)}</b`
+             DinheiroSecondInput.innerHTML = `<b>€<b> ${valorConvertido}`
+      
+         }
+         if(SecondInput.value == FirstInput.value) {
+             alert(`Você não pode converter para a mesma moeda`)
+         }
+     }
+     if(FirstInput.value == '€ Euro') {
+         if(SecondInput.value == 'US$ Dólar americano') {
+             var valorConvertido = (Number(input.value)*EuroToDolar).toFixed(2)
+      
+             DinheiroFirstInput.innerHTML = `<b>€<b> ${Number(input.value)}</b`
+             DinheiroSecondInput.innerHTML = `<b>US$<b> ${valorConvertido}`
+      
+         }
+         if(SecondInput.value == 'R$ Real Brasileiro') {
+             var valorConvertido = (Number(input.value)*EuroToReal).toFixed(2)
+      
+             DinheiroFirstInput.innerHTML = `<b>€<b> ${Number(input.value)}</b`
+             DinheiroSecondInput.innerHTML = `<b>R$<b> ${valorConvertido}`
+      
+         }
+         if(SecondInput.value == FirstInput.value) {
+             alert('Você não pode converter para a mesma moeda')
+         }
+     }
+ })
 
 
-// let DolarToReal = 5.07
-// let DolarToEur = 0.91
-// let RealToDolar = 0.20
-// let RealToEuro = 0.18
-// let EuroToDolar = 1.10
-// let EuroToReal = 5.56
-
-
-
-// FirstInput.addEventListener('change', () => {
-//     if(FirstInput.value == 'R$ Real Brasileiro') {
-//         console.log(`f input real`)
-//         DinheiroFlagFisrtInput.src = './assets/br-flag.svg'
-//         DinheiroPalavraFirstInput.innerText = 'Real'
-//         input.placeholder = 'R$ 0,00'
-//         UnidadeMonetaria1.innerText = 'R$'
-//         }
-//     if(FirstInput.value == 'US$ Dólar americano') {
-//         console.log(`f input dolar`)
-//         DinheiroFlagFisrtInput.src = './assets/usa-flag.svg'
-//         DinheiroPalavraFirstInput.innerText = 'Dólar Americano'
-//         input.placeholder = '$ 0,00'
-//         UnidadeMonetaria1.innerText = '$'
-//     }
-//     if(FirstInput.value == '€ Euro') {
-//         console.log(`f input euro`)
-//         DinheiroFlagFisrtInput.src = './assets/eur.svg'
-//         DinheiroPalavraFirstInput.innerText = 'Euro'
-//         input.placeholder = '€ 0,00'
-//         UnidadeMonetaria1.innerText = '€'
-//     }
-// })
-
-// SecondInput.addEventListener('change', () => {
-//     if(SecondInput.value == 'R$ Real Brasileiro') {
-//         console.log(`s input real`)
-//         DinheiroFlagSecondInput.src = './assets/br-flag.svg'
-//         DinheiroPalavraSecondInput.innerText = 'Real'
-//         input.placeholder = 'R$ 0,00'
-//         UnidadeMonetaria2.innerText = 'R$'
-//         }
-//     if(SecondInput.value == 'US$ Dólar americano') {
-//         console.log(`s input dolar`)
-//         DinheiroFlagSecondInput.src = './assets/usa-flag.svg'
-//         DinheiroPalavraSecondInput.innerText = 'Dólar Americano'
-//         input.placeholder = '$ 0,00'
-//         UnidadeMonetaria2.innerText = '$'
-//     }
-//     if(SecondInput.value == '€ Euro') {
-//         console.log(`s input euro`)
-//         DinheiroFlagSecondInput.src = './assets/eur.svg'
-//         DinheiroPalavraSecondInput.innerText = 'Euro'
-//         input.placeholder = '€ 0,00'
-//         UnidadeMonetaria2.innerText = '€'
-//     }
-// })
-
-// button.addEventListener('click', () => {
-//     if(FirstInput.value == 'R$ Real Brasileiro') {
-//         if(SecondInput.value == 'US$ Dólar americano') {
-//             var valorConvertido = (Number(input.value)*RealToDolar).toFixed(2)
-        
-//             DinheiroFirstInput.innerHTML = `<b>R$<b> ${Number(input.value)}</b`
-//             DinheiroSecondInput.innerHTML = `<b>US$<b> ${valorConvertido}`
-//         }
-//         if(SecondInput.value == '€ Euro') {
-//             var valorConvertido = (Number(input.value)*RealToEuro).toFixed(2)
-        
-//             DinheiroFirstInput.innerHTML = `<b>R$<b> ${Number(input.value)}</b`
-//             DinheiroSecondInput.innerHTML = `<b>€ <b> ${valorConvertido}`
-        
-//         }
-//         if(SecondInput.value == 'R$ Real Brasileiro') {
-//             alert('Você não pode converter para a mesma moeda')
-//         }
-//     }
-//     if(FirstInput.value == 'US$ Dólar americano') {
-//         if(SecondInput.value == 'R$ Real Brasileiro') {
-//             var valorConvertido = (Number(input.value)*DolarToReal).toFixed(2)
-        
-//             DinheiroFirstInput.innerHTML = `<b>US$<b> ${Number(input.value)}</b`
-//             DinheiroSecondInput.innerHTML = `<b>R$<b> ${valorConvertido}`
-        
-//         }
-//         if(SecondInput.value == '€ Euro') {
-//             var valorConvertido = (Number(input.value)*DolarToEur).toFixed(2)
-        
-//             DinheiroFirstInput.innerHTML = `<b>US$<b> ${Number(input.value)}</b`
-//             DinheiroSecondInput.innerHTML = `<b>€<b> ${valorConvertido}`
-        
-//         }
-//         if(SecondInput.value == FirstInput.value) {
-//             alert(`Você não pode converter para a mesma moeda`)
-//         }
-//     }
-//     if(FirstInput.value == '€ Euro') {
-//         if(SecondInput.value == 'US$ Dólar americano') {
-//             var valorConvertido = (Number(input.value)*EuroToDolar).toFixed(2)
-        
-//             DinheiroFirstInput.innerHTML = `<b>€<b> ${Number(input.value)}</b`
-//             DinheiroSecondInput.innerHTML = `<b>US$<b> ${valorConvertido}`
-        
-//         }
-//         if(SecondInput.value == 'R$ Real Brasileiro') {
-//             var valorConvertido = (Number(input.value)*EuroToReal).toFixed(2)
-        
-//             DinheiroFirstInput.innerHTML = `<b>€<b> ${Number(input.value)}</b`
-//             DinheiroSecondInput.innerHTML = `<b>R$<b> ${valorConvertido}`
-        
-//         }
-//         if(SecondInput.value == FirstInput.value) {
-//             alert('Você não pode converter para a mesma moeda')
-//         }
-//     }
-// })
+/*
 const inputs = document.querySelectorAll('#input, #converter-de, #converter-para');
 const currencyFlags = {
   'R$': './assets/br-flag.svg',
@@ -201,4 +197,4 @@ function handleInputChange() {
 
 inputs.forEach(input => input.addEventListener('change', handleInputChange));
 
-button.addEventListener('click', convert);
+button.addEventListener('click', convert);*/
