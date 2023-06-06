@@ -76,7 +76,7 @@
       
              DinheiroFirstInput.innerHTML = `<b>R$<b> ${Number(input.value)}</b`
              DinheiroSecondInput.innerHTML = `<b>€ <b> ${valorConvertido}`
-      
+      //
          }
          if(SecondInput.value == 'R$ Real Brasileiro') {
              alert('Você não pode converter para a mesma moeda')
